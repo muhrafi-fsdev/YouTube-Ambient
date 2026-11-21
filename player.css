@@ -1,0 +1,115 @@
+/* These attributes exist only on the current watch layout while enabled. */
+:is(ytd-watch-flexy, ytd-watch-grid)[data-yag-surface] {
+  isolation: isolate;
+  --yag-panel-base: color-mix(
+    in srgb,
+    var(--yt-spec-base-background, #181818) 93%,
+    var(--yt-spec-text-primary, #f1f1f1)
+  );
+  --yag-panel: color-mix(in srgb, var(--yag-panel-base) var(--yag-coverage), transparent);
+}
+
+[data-yag-surface][data-yag-relative] {
+  position: relative !important;
+}
+
+[data-yag-surface] > canvas[data-yag-ambient] {
+  position: absolute;
+  display: block;
+  inset: 0 auto auto 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--yag-intensity, 0);
+  filter: blur(var(--yag-blur, 40px)) saturate(126%);
+  /* Measure each falloff inside the actual canvas bounds. */
+  mask-image:
+    linear-gradient(to right, transparent, #000 var(--yag-fade-left), #000 calc(100% - var(--yag-fade-right)), transparent),
+    linear-gradient(to bottom, transparent, #000 var(--yag-fade-top), #000 calc(100% - var(--yag-fade-bottom)), transparent);
+  mask-composite: intersect;
+  clip-path: inset(0);
+}
+
+[data-yag-tone] > canvas[data-yag-ambient] {
+  filter: blur(var(--yag-blur, 40px)) saturate(126%) brightness(var(--yag-brightness));
+}
+
+[data-yag-surface]:not([data-yag-video]) > canvas[data-yag-ambient],
+[data-yag-surface][data-yag-fullscreen] > canvas[data-yag-ambient] {
+  display: none;
+}
+
+[data-yag-side] {
+  display: none;
+}
+
+[data-yag-video] [data-yag-side] {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+  opacity: var(--yag-intensity, 0);
+}
+
+#movie_player > [data-yag-side] {
+  z-index: 11;
+}
+
+[data-yag-tone] [data-yag-side] {
+  filter: brightness(var(--yag-brightness));
+}
+
+[data-yag-side] > canvas:not([hidden]) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+[data-yag-motion] [data-yag-side] > canvas:not([hidden]) {
+  opacity: 0.55;
+}
+
+[data-yag-motion] [data-yag-side],
+[data-yag-motion] > canvas[data-yag-ambient] {
+  opacity: calc(var(--yag-intensity, 0) * 0.7);
+}
+
+[data-yag-video] [data-yag-halo] {
+  opacity: calc(var(--yag-intensity, 0) * 0.4);
+  mask-image: linear-gradient(var(--yag-halo-direction), #000, transparent);
+}
+
+[data-yag-side="left"] {
+  --yag-halo-direction: to right;
+}
+
+[data-yag-side="right"] {
+  --yag-halo-direction: to left;
+}
+
+[data-yag-side="top"] {
+  --yag-halo-direction: to bottom;
+}
+
+[data-yag-side="bottom"] {
+  --yag-halo-direction: to top;
+}
+
+/* Suppress only the native ambient renderer, for as long as ours is used. */
+:is([data-yag-video], [data-yag-still]) :is(#cinematics, ytd-cinematic-container-renderer, yt-cinematic-container) {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Remove duplicate background paint behind the panels in the watch layout. */
+[data-yag-surface] :is(#columns, #primary, #primary-inner, #secondary, #below, #related) {
+  background-color: transparent !important;
+}
+
+/* Tint panel backgrounds without changing the opacity of their contents. */
+[data-yag-surface] :is(#secondary-inner, ytd-comments#comments, ytd-watch-metadata #description) {
+  background-color: var(--yag-panel) !important;
+}
+
+[data-yag-surface] :is(#secondary-inner, ytd-comments#comments) {
+  border-radius: 12px;
+}

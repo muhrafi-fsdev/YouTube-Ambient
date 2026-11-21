@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Ambient Glass</title>
+  <link rel="stylesheet" href="popup.css">
+  <script defer src="settings.js"></script>
+  <script defer src="popup.js"></script>
+</head>
+<body>
+  <main>
+    <fieldset id="controls" aria-label="Pengaturan ekstensi" disabled>
+      <header>
+        <img src="icons/48.png" alt="" width="34" height="34">
+        <div>
+          <h1>YouTube Ambient Glass</h1>
+          <p class="developer">Pengembang · Akira Keiji</p>
+        </div>
+        <label class="switch">
+          <input id="enabled" type="checkbox" role="switch" aria-label="Aktifkan YouTube Ambient Glass">
+          <span class="track" aria-hidden="true"></span>
+          <span id="switch-label" aria-hidden="true">Off</span>
+        </label>
+      </header>
+      <div class="adjustments">
+        <div class="adjustment">
+          <label for="intensity">Intensitas Ambient</label>
+          <output id="intensity-value" for="intensity">92%</output>
+          <input id="intensity" type="range" min="0" max="100" value="92">
+        </div>
+        <div class="adjustment">
+          <label for="brightness">Kecerahan ambient</label>
+          <output id="brightness-value" for="brightness">100%</output>
+          <input id="brightness" type="range" min="40" max="100" value="100">
+        </div>
+        <div class="adjustment">
+          <label for="transparency">Transparansi Panel</label>
+          <output id="transparency-value" for="transparency">86%</output>
+          <input id="transparency" type="range" min="0" max="100" value="86">
+        </div>
+        <label class="halo-option">
+          <input id="full-glow" type="checkbox">
+          <span>Pendar tepi fullscreen</span>
+        </label>
+        <div class="select-option">
+          <label for="flip-mode">Flip isian tepi</label>
+          <select id="flip-mode">
+            <option value="none">Searah video</option>
+            <option value="edge">Cermin per sisi</option>
+            <option value="horizontal">Horizontal</option>
+            <option value="vertical">Vertikal</option>
+            <option value="both">Horizontal + vertikal</option>
+          </select>
+        </div>
+        <label class="halo-option">
+          <input id="motion" type="checkbox" aria-describedby="motion-note">
+          <span>Gerakkan ambient</span>
+        </label>
+        <p id="motion-note">Biarkan mati jika sensitif terhadap kilatan.</p>
+        <div class="select-option">
+          <label for="fps">FPS isian tepi</label>
+          <select id="fps" disabled>
+            <option value="source">Ikuti video (maks. 60)</option>
+            <option value="30">Maks. 30 FPS</option>
+            <option value="24">Maks. 24 FPS</option>
+          </select>
+        </div>
+      </div>
+      <footer>
+        <p id="status" role="status">Memuat pengaturan…</p>
+        <button id="reset" type="button">Reset</button>
+      </footer>
+    </fieldset>
+  </main>
+</body>
+</html>
