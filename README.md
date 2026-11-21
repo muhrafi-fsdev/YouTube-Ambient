@@ -1,5 +1,11 @@
 # YouTube Ambient Glass
 
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](player.js)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](popup.html)
+[![CSS](https://img.shields.io/badge/CSS-663399?logo=css&logoColor=white)](player.css)
+[![Versi 1.9.0](https://img.shields.io/badge/version-1.9.0-2563EB)](manifest.json)
+[![Chrome 120+](https://img.shields.io/badge/chrome-120%2B-4285F4?logo=googlechrome&logoColor=white)](manifest.json)
+
 Ekstensi Chrome dari **Akira Keiji** yang memperpanjang gambar video YouTube ke ruang kosong di tepi player. Rasio video, subtitle, dan kontrol player tetap mengikuti tampilan YouTube.
 
 ## Pasang di Chrome
