@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "YouTube Ambient Glass",
   "version": "1.9.0",
-  "description": "Perpanjangan gambar di sekitar video YouTube. Dikembangkan oleh Akira Keiji.",
+  "description": "Perpanjangan gambar di sekitar video YouTube. Dikembangkan oleh Muhammad Rafi Priyo.",
   "minimum_chrome_version": "120",
   "permissions": ["storage"],
   "icons": {

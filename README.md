@@ -6,7 +6,7 @@
 [![Versi 1.9.0](https://img.shields.io/badge/version-1.9.0-2563EB)](manifest.json)
 [![Chrome 120+](https://img.shields.io/badge/chrome-120%2B-4285F4?logo=googlechrome&logoColor=white)](manifest.json)
 
-Ekstensi Chrome dari **Akira Keiji** yang memperpanjang gambar video YouTube ke ruang kosong di tepi player. Rasio video, subtitle, dan kontrol player tetap mengikuti tampilan YouTube.
+Ekstensi Chrome dari [**Muhammad Rafi Priyo**](https://github.com/muhrafi-fsdev) yang memperpanjang gambar video YouTube ke ruang kosong di tepi player. Rasio video, subtitle, dan kontrol player tetap mengikuti tampilan YouTube.
 
 ## Pasang di Chrome
 
